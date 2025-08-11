@@ -1,0 +1,101 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: 0 0% 0%;
+  --foreground: 0 0% 100%;
+  --card: 0 0% 0%;
+  --card-foreground: 0 0% 100%;
+  --popover: 0 0% 0%;
+  --popover-foreground: 0 0% 100%;
+  --primary: 38 25% 62%;
+  --primary-foreground: 0 0% 0%;
+  --secondary: 0 0% 10%;
+  --secondary-foreground: 0 0% 100%;
+  --muted: 0 0% 10%;
+  --muted-foreground: 0 0% 60%;
+  --accent: 0 0% 10%;
+  --accent-foreground: 0 0% 100%;
+  --destructive: 0 62.8% 30.6%;
+  --destructive-foreground: 0 0% 100%;
+  --border: 0 0% 10%;
+  --input: 0 0% 10%;
+  --ring: 38 25% 62%;
+}
+
+/* === RESET TOTAL PARA ELIMINAR LÍNEAS LATERALES === */
+html,
+body {
+  padding: 0;
+  margin: 0;
+  width: 100vw;
+  overflow-x: hidden;
+  background: linear-gradient(to bottom, #3c2f29, #000000);
+  min-height: 100vh;
+  color: white;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+@layer components {
+  .container {
+    @apply max-w-full px-0;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+/* Optimize animations */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+.animate-glow {
+  animation: glow 4s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+  from {
+    box-shadow: 0 0 0px #bfa97a;
+  }
+  to {
+    box-shadow: 0 0 20px #bfa97a;
+  }
+}
+
+/* === ASEGURAR QUE NO HAY GAPS LATERALES === */
+#__next,
+.min-h-screen {
+  width: 100%;
+  overflow-x: hidden;
+}
+
+/* === ELIMINAR CUALQUIER OUTLINE DE DEBUG === */
+/* * {
+  outline: 1px solid rgba(255, 0, 0, 0.2);
+} */
+
+footer p:contains("Built with v0") {
+  display: none;
+}

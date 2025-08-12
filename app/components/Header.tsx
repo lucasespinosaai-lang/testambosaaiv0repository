@@ -6,11 +6,17 @@ import { Button } from "@/components/ui/button"
 import { Menu } from "lucide-react"
 import { motion } from "framer-motion"
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
+import { usePathname } from "next/navigation"
 
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [isHovered, setIsHovered] = useState(false)
+  const pathname = usePathname()
+
+  // Páginas donde mostrar navegación simplificada
+  const simplifiedNavPages = ["/contacto", "/aviso-legal", "/terminos", "/privacidad"]
+  const isSimplifiedNav = simplifiedNavPages.includes(pathname)
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 0)
@@ -25,47 +31,63 @@ export default function Header() {
           isScrolled ? "bg-black/20 backdrop-blur-lg" : "bg-transparent backdrop-blur-lg"
         }`}
       >
-        {/* relative para centrar el nav en md+ */}
         <div className="container mx-auto px-8 md:pr-2 lg:pr-0 flex items-center justify-between max-w-5xl md:max-w-6xl h-[80px] relative">
           {/* Logo (izquierda) */}
           <Link href="/" className="flex items-center">
             <img
               src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/LOGO_AMBOSA_AI_14_-removebg-preview-a9OjvSjGPCqmEHm6fuNxeBgs6Qdfdd.png"
               alt="Ambosa AI Logo"
-              className="object-contain h-40 w-384px"
+              className="object-contain h-44 w-96" // Corregido el className del logo
               style={{ imageRendering: "auto", filter: "contrast(1.05) brightness(1.02) saturate(1.1)" }}
             />
           </Link>
 
           {/* Nav centrado (solo desktop) */}
           <nav className="hidden md:block md:absolute md:left-1/2 md:top-1/2 md:-translate-x-1/2 md:-translate-y-1/2">
-            <ul className="flex items-center space-x-8">
-              <li>
-                <Link href="#proceso" className="hover:text-[#BFA97A] transition-colors">
-                  Proceso
-                </Link>
-              </li>
-              <li>
-                <Link href="#servicios" className="hover:text-[#BFA97A] transition-colors">
-                  Servicios
-                </Link>
-              </li>
-              <li>
-                <Link href="#beneficios" className="hover:text-[#BFA97A] transition-colors">
-                  Beneficios
-                </Link>
-              </li>
-              <li>
-                <Link href="#faq" className="hover:text-[#BFA97A] transition-colors">
-                  FAQ
-                </Link>
-              </li>
-              <li>
-                <Link href="/contacto" className="hover:text-[#BFA97A] transition-colors">
-                  Contacto
-                </Link>
-              </li>
-            </ul>
+            {isSimplifiedNav ? (
+              // Navegación simplificada para páginas específicas
+              <ul className="flex items-center space-x-8">
+                <li>
+                  <Link href="/" className="hover:text-[#BFA97A] transition-colors">
+                    Home
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/contacto" className="hover:text-[#BFA97A] transition-colors">
+                    Contacto
+                  </Link>
+                </li>
+              </ul>
+            ) : (
+              // Navegación completa para la página principal
+              <ul className="flex items-center space-x-8">
+                <li>
+                  <Link href="#proceso" className="hover:text-[#BFA97A] transition-colors">
+                    Proceso
+                  </Link>
+                </li>
+                <li>
+                  <Link href="#servicios" className="hover:text-[#BFA97A] transition-colors">
+                    Servicios
+                  </Link>
+                </li>
+                <li>
+                  <Link href="#beneficios" className="hover:text-[#BFA97A] transition-colors">
+                    Beneficios
+                  </Link>
+                </li>
+                <li>
+                  <Link href="#faq" className="hover:text-[#BFA97A] transition-colors">
+                    FAQ
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/contacto" className="hover:text-[#BFA97A] transition-colors">
+                    Contacto
+                  </Link>
+                </li>
+              </ul>
+            )}
           </nav>
 
           {/* Hamburguesa (solo móvil) */}
@@ -81,35 +103,66 @@ export default function Header() {
                 className="bg-black/90 border-l border-[#BFA97A]/20 backdrop-blur-lg text-white"
               >
                 <nav className="flex flex-col space-y-6 p-4">
-                  <Link href="#proceso" className="hover:text-[#BFA97A] text-lg" onClick={() => setIsMenuOpen(false)}>
-                    Proceso
-                  </Link>
-                  <Link href="#servicios" className="hover:text-[#BFA97A] text-lg" onClick={() => setIsMenuOpen(false)}>
-                    Servicios
-                  </Link>
-                  <Link
-                    href="#beneficios"
-                    className="hover:text-[#BFA97A] text-lg"
-                    onClick={() => setIsMenuOpen(false)}
-                  >
-                    Beneficios
-                  </Link>
-                  <Link href="#faq" className="hover:text-[#BFA97A] text-lg" onClick={() => setIsMenuOpen(false)}>
-                    FAQ
-                  </Link>
-                  <Link href="/contacto" className="hover:text-[#BFA97A] text-lg" onClick={() => setIsMenuOpen(false)}>
-                    Contacto
-                  </Link>
+                  {isSimplifiedNav ? (
+                    // Navegación móvil simplificada
+                    <>
+                      <Link href="/" className="hover:text-[#BFA97A] text-lg" onClick={() => setIsMenuOpen(false)}>
+                        Home
+                      </Link>
+                      <Link
+                        href="/contacto"
+                        className="hover:text-[#BFA97A] text-lg"
+                        onClick={() => setIsMenuOpen(false)}
+                      >
+                        Contacto
+                      </Link>
+                    </>
+                  ) : (
+                    // Navegación móvil completa
+                    <>
+                      <Link
+                        href="#proceso"
+                        className="hover:text-[#BFA97A] text-lg"
+                        onClick={() => setIsMenuOpen(false)}
+                      >
+                        Proceso
+                      </Link>
+                      <Link
+                        href="#servicios"
+                        className="hover:text-[#BFA97A] text-lg"
+                        onClick={() => setIsMenuOpen(false)}
+                      >
+                        Servicios
+                      </Link>
+                      <Link
+                        href="#beneficios"
+                        className="hover:text-[#BFA97A] text-lg"
+                        onClick={() => setIsMenuOpen(false)}
+                      >
+                        Beneficios
+                      </Link>
+                      <Link href="#faq" className="hover:text-[#BFA97A] text-lg" onClick={() => setIsMenuOpen(false)}>
+                        FAQ
+                      </Link>
+                      <Link
+                        href="/contacto"
+                        className="hover:text-[#BFA97A] text-lg"
+                        onClick={() => setIsMenuOpen(false)}
+                      >
+                        Contacto
+                      </Link>
+                    </>
+                  )}
                 </nav>
               </SheetContent>
             </Sheet>
           </div>
 
-          {/* CTA (derecha) */}
+          {/* CTA (derecha) - Mantener en todas las páginas */}
           <Button
-            className="hidden md:inline-flex ml-6 bg-[#BFA97A] text-white hover:bg-[#BFA97A]/90
-                     text-sm md:text-base px-5 py-3 rounded-full
-                     transition-colors relative overflow-hidden group font-semibold shadow shadow-white"
+            className="hidden md:inline-flex ml-auto bg-[#BFA97A] text-white hover:bg-[#BFA97A]/90
+             text-sm md:text-base px-5 py-3 rounded-full
+             transition-colors relative overflow-hidden group font-semibold"
             onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)}
             asChild={false}

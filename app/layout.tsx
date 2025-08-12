@@ -10,7 +10,9 @@ export const metadata: Metadata = {
   title: "Ambosa AI - Automatiza lo esencial. Mantén lo auténtico.",
   description:
     "Aprovecha el poder de la inteligencia artificial para automatizar procesos clave, ahorrar tiempo y reducir costos sin perder control.",
-    generator: 'v0.dev'
+      icons: {
+    icon: "/favicon.ico",
+  },
 }
 
 export default function RootLayout({

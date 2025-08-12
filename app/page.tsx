@@ -139,33 +139,36 @@ export default function Home() {
                   <div className="relative inline-block">
                     <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} className="relative z-10">
                       <Button
-                        size="lg"
-                        className="bg-[#BFA97A] text-white hover:bg-[#BFA97A]/90 text-lg px-8 py-6 rounded-full transition-colors relative overflow-hidden group font-semibold"
-                        onMouseEnter={() => setIsHovered(true)}
-                        onMouseLeave={() => setIsHovered(false)}
-                        asChild
-                      >
-                        <a
-                          href="https://cal.com/lucas-espinosa/ia-para-tu-negocio"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                        >
-                          <span className="relative z-10">EMPIEZA A AUTOMATIZAR HOY</span>
-                          <motion.span
-                            className="absolute inset-0 bg-gradient-to-r from-[#BFA97A]/80 to-[#BFA97A]"
-                            initial={{ x: "100%" }}
-                            animate={{ x: isHovered ? "0%" : "100%" }}
-                            transition={{ duration: 0.3 }}
-                          />
-                          <motion.span
-                            animate={{ x: isHovered ? 5 : 0 }}
-                            transition={{ duration: 0.2 }}
-                            className="ml-2 relative z-10"
-                          >
-                            →
-                          </motion.span>
-                        </a>
-                      </Button>
+  size="lg"
+  className="bg-[#BFA97A] text-white hover:bg-[#BFA97A]/90 
+             text-base sm:text-lg 
+             px-4 py-3 sm:px-8 sm:py-6 
+             rounded-full transition-colors relative overflow-hidden group font-semibold"
+  onMouseEnter={() => setIsHovered(true)}
+  onMouseLeave={() => setIsHovered(false)}
+  asChild
+>
+  <a
+    href="https://cal.com/lucas-espinosa/ia-para-tu-negocio"
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    <span className="relative z-10">EMPIEZA A AUTOMATIZAR HOY</span>
+    <motion.span
+      className="absolute inset-0 bg-gradient-to-r from-[#BFA97A]/80 to-[#BFA97A]"
+      initial={{ x: "100%" }}
+      animate={{ x: isHovered ? "0%" : "100%" }}
+      transition={{ duration: 0.3 }}
+    />
+    <motion.span
+      animate={{ x: isHovered ? 5 : 0 }}
+      transition={{ duration: 0.2 }}
+      className="ml-2 relative z-10"
+    >
+      →
+    </motion.span>
+  </a>
+</Button>
                     </motion.div>
                   </div>
                 </motion.div>

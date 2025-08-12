@@ -24,12 +24,6 @@ export default function TerminosPage() {
           transition={{ duration: 0.8 }}
           className="max-w-4xl mx-auto"
         >
-          <Button asChild variant="ghost" className="mb-8 text-[#BFA97A] hover:text-white">
-            <Link href="/">
-              <ArrowLeft className="mr-2 h-4 w-4" />
-              Volver al inicio
-            </Link>
-          </Button>
 
           <h1 className="text-5xl font-bold mb-12 text-center">Términos y Condiciones</h1>
 

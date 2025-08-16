@@ -356,10 +356,10 @@ export default function Home() {
               >
                 <div className="
   relative overflow-hidden rounded-2xl p-6 sm:p-8
-  border border-[#BFA97A]/35
-  shadow-xl shadow-black/30
-  backdrop-blur-md
-  bg-[radial-gradient(1200px_800px_at_50%_-20%,rgba(191,169,122,0.18),transparent_70%),linear-gradient(to_bottom_right,rgba(255,255,255,0.02),rgba(0,0,0,0.6))]
+    border border-[#3C2F29]/50
+    shadow-xl shadow-black/30
+    backdrop-blur-md
+    bg-[linear-gradient(to_bottom_right,#3C2F29,rgba(0,0,0,0.6))]
 ">
   {/* sutil “vignette” interior */}
   <div className="pointer-events-none absolute inset-0 ring-1 ring-white/5 rounded-2xl"></div>

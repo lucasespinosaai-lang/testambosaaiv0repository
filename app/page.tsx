@@ -354,11 +354,17 @@ export default function Home() {
                 viewport={{ once: true }}
                 className="max-w-4xl mx-auto text-center"
               >
-                <div className="bg-gradient-to-br from-[#BFA97A]/20 via-black/60 to-[#BFA97A]/10 backdrop-blur-lg border border-[#BFA97A] rounded-xl p-6 sm:p-8 shadow-2xl shadow-[#BFA97A]/20 relative overflow-hidden">
-                  {/* Efecto de brillo adicional */}
-                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-[#BFA97A]/5 to-transparent blur-xl"></div>
+                <div className="
+  relative overflow-hidden rounded-2xl p-6 sm:p-8
+  border border-[#BFA97A]/35
+  shadow-xl shadow-black/30
+  backdrop-blur-md
+  bg-[radial-gradient(1200px_800px_at_50%_-20%,rgba(191,169,122,0.18),transparent_70%),linear-gradient(to_bottom_right,rgba(255,255,255,0.02),rgba(0,0,0,0.6))]
+">
+  {/* sutil “vignette” interior */}
+  <div className="pointer-events-none absolute inset-0 ring-1 ring-white/5 rounded-2xl"></div>
 
-                  <div className="relative z-10">
+  <div className="relative z-10">
                     <h2 className="text-4xl sm:text-5xl font-bold mb-8">¿Listo para automatizar tu negocio?</h2>
                     <p className="text-xl md:text-2xl mb-12 text-gray-300 max-w-3xl mx-auto">
                       Agenda una demo personalizada y descubre cómo la IA puede transformar tu empresa en menos de 30

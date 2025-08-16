@@ -354,50 +354,68 @@ export default function Home() {
                 viewport={{ once: true }}
                 className="max-w-4xl mx-auto text-center"
               >
-                <h2 className="text-4xl sm:text-5xl font-bold mb-8">¿Listo para automatizar tu negocio?</h2>
-                <p className="text-xl md:text-2xl mb-12 text-gray-300 max-w-3xl mx-auto">
-                  Agenda una demo personalizada y descubre cómo la IA puede transformar tu empresa en menos de 30 días.
-                </p>
-                <div className="flex justify-center items-center">
-                  {" "}
-                  {/* Wrapper div for centering */}
-                  <Button
-                    className="bg-[#BFA97A] text-white hover:bg-[#BFA97A]/90
-                         w-auto mx-auto inline-flex items-center justify-center
-                         !whitespace-nowrap text-sm md:text-lg px-4 py-3 md:px-8 md:py-6
-                         rounded-full"
-                    asChild
-                  >
-                    <a
-                      href="https://cal.com/lucas-espinosa/ia-para-tu-negocio"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center justify-center"
-                    >
-                      EMPIEZA A AUTOMATIZAR HOY
-                      <ArrowRight className="ml-2 h-4 w-4 md:h-5 w-5 group-hover:translate-x-1 transition-transform" />
-                    </a>
-                  </Button>
-                </div>
-                <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-8 max-w-3xl mx-auto">
-                  <div className="text-center">
-                    <div className="text-2xl sm:text-3xl font-bold text-[#BFA97A] mb-2">30 min</div>
-                    <div className="text-gray-400 text-sm sm:text-base">Duración de la demo</div>
-                  </div>
-                  <div className="text-center">
-                    <div className="text-2xl sm:text-3xl font-bold text-[#BFA97A] mb-2">100%</div>
-                    <div className="text-gray-400 text-sm sm:text-base">Personalizada</div>
-                  </div>
-                  <div className="text-center">
-                    <div className="text-2xl sm:text-3xl font-bold text-[#BFA97A] mb-2">0€</div>
-                    <div className="text-gray-400 text-sm sm:text-base">Completamente gratis</div>
+                <div className="bg-gradient-to-br from-[#BFA97A]/20 via-black/60 to-[#BFA97A]/10 backdrop-blur-lg border border-[#BFA97A] rounded-xl p-6 sm:p-8 shadow-2xl shadow-[#BFA97A]/20 relative overflow-hidden">
+                  {/* Efecto de brillo adicional */}
+                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-[#BFA97A]/5 to-transparent blur-xl"></div>
+
+                  <div className="relative z-10">
+                    <h2 className="text-4xl sm:text-5xl font-bold mb-8">¿Listo para automatizar tu negocio?</h2>
+                    <p className="text-xl md:text-2xl mb-12 text-gray-300 max-w-3xl mx-auto">
+                      Agenda una demo personalizada y descubre cómo la IA puede transformar tu empresa en menos de 30
+                      días.
+                    </p>
+                    <div className="flex justify-center items-center">
+                      {" "}
+                      {/* Wrapper div for centering */}
+                      <Button
+                        size="lg"
+                        className="bg-[#BFA97A] text-white hover:bg-[#BFA97A]/90 text-lg px-8 py-6 rounded-full transition-colors relative overflow-hidden group font-semibold"
+                        onMouseEnter={() => setIsHovered(true)}
+                        onMouseLeave={() => setIsHovered(false)}
+                        asChild
+                      >
+                        <a
+                          href="https://cal.com/lucas-espinosa/ia-para-tu-negocio"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          <span className="relative z-10">EMPIEZA A AUTOMATIZAR HOY</span>
+                          <motion.span
+                            className="absolute inset-0 bg-gradient-to-r from-[#BFA97A]/80 to-[#BFA97A]"
+                            initial={{ x: "100%" }}
+                            animate={{ x: isHovered ? "0%" : "100%" }}
+                            transition={{ duration: 0.3 }}
+                          />
+                          <motion.span
+                            animate={{ x: isHovered ? 5 : 0 }}
+                            transition={{ duration: 0.2 }}
+                            className="ml-2 relative z-10"
+                          >
+                            →
+                          </motion.span>
+                        </a>
+                      </Button>
+                    </div>
+                    <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-8 max-w-3xl mx-auto">
+                      <div className="text-center">
+                        <div className="text-2xl sm:text-3xl font-bold text-[#BFA97A] mb-2">30 min</div>
+                        <div className="text-gray-400 text-sm sm:text-base">Duración de la demo</div>
+                      </div>
+                      <div className="text-center">
+                        <div className="text-2xl sm:text-3xl font-bold text-[#BFA97A] mb-2">100%</div>
+                        <div className="text-gray-400 text-sm sm:text-base">Personalizada</div>
+                      </div>
+                      <div className="text-center">
+                        <div className="text-2xl sm:text-3xl font-bold text-[#BFA97A] mb-2">0€</div>
+                        <div className="text-gray-400 text-sm sm:text-base">Completamente gratis</div>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </motion.div>
             </div>
           </section>
         </main>
-
         <Footer />
       </div>
     </div>

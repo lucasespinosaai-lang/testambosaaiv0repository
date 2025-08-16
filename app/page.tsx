@@ -356,7 +356,7 @@ export default function Home() {
               >
                 <div className="
   relative overflow-hidden rounded-2xl p-6 sm:p-8
-    border border-[#3C2F29]/50
+    border border-[#BFA97A]/40
     shadow-xl shadow-black/30
     backdrop-blur-md
     bg-[linear-gradient(to_bottom_right,#3C2F29,rgba(0,0,0,0.6))]
